@@ -1,0 +1,31 @@
+.nav {
+    list-style-type: none;
+    background-color: rgb(222, 222, 222);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav ul a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.nav ul a:hover {
+    color: rgb(40, 135, 135);
+}
+.navLogo{
+    width: 50px;
+    margin: 10px;
+}
