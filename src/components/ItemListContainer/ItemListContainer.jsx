@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemCount from '../ItemCount/ItemCount';
 import './style.css'
 function ItemListContainer(props) {
     return (
