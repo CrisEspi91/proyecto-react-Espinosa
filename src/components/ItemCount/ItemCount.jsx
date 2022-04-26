@@ -4,14 +4,18 @@ import './ItemCount.css'
 function ItemCount(props) {
     const [count, setCount] = useState(props.initial) // el useState necesita dos valores, que serian count y setCount y usaremos handlers en los botones para las acciones. 
     function handleAdd(){
-        setCount(count + 1)
-        if(count === props.stock ){
+        if(count <= props.stock ){
+            setCount(count + 1)
+           
+        }else{
             alert('alcanzaste el máximo de productos')
         }
     }
 
     function handleSubs(){
+        if (count > 0){
         setCount(count - 1)
+        }
     }
 
     function addChart(){
