@@ -13,7 +13,7 @@ function ItemCount(props) {
     }
 
     function handleSubs(){
-        if (count > 0){
+        if (count > 1){
         setCount(count - 1)
         }
     }

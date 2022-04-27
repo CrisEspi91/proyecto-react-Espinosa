@@ -1,0 +1,21 @@
+.item{
+    width: 100%;
+}
+.containerProduct{
+    background-color: rgb(228, 241, 252);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-bottom: solid 2px ;
+    
+}
+
+.titleProduct{
+    font-size: 22px;
+}
+
+.priceProduct{
+    font-size: 20px;
+    color: rgb(89, 176, 161);
+}
