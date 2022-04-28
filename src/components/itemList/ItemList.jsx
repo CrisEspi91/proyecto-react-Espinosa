@@ -8,13 +8,15 @@ function ItemList({products}) {
         {products.map(thisProduct => {
             
             return(
-                <Item producto ={thisProduct} key = {thisProduct.id}/>  // react necesita un key SIEMPRE para organizar y reconocer los elementos. 
+                <div className='ItemContainer'>
+                    <Item producto ={thisProduct} key = {thisProduct.id}/>   
+                </div>
             )  
         }) 
         } 
     </>
     );
 
-}
+}// react necesita un key SIEMPRE para organizar y reconocer los elementos.
 
 export default ItemList;

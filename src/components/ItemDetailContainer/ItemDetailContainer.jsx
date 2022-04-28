@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'; // estos datos se guardaran en el estado, sera el estado del componente itemlist container, asi cada vez que hay cambios esto no se tiene que volver a cargar
-import './style.css'
 import products from '../../data/products'
-import ItemList from '../itemList/ItemList';
+import ItemDetail from '../ItemDetail/ItemDetail'
 
-function getProducts(){
+
+function getProduct(){
     return new Promise((resolve, reject) => {   // el resolve es como el return de una funci[on]
        setTimeout( () => {
         resolve(products)
@@ -11,24 +11,22 @@ function getProducts(){
     });
 }
 
-function ItemListContainer(props) {
-    const [products, setProducts] = useState([])   // para guardar dentro del estado llamamos al setter. setProducts
+function ItemDetailContainer() {
+    const [product, setProduct] = useState([])   // para guardar dentro del estado llamamos al setter. setProducts
 
     useEffect( () => {
-        getProducts().then(respuetaPromise => {
-            setProducts(respuetaPromise)
+        getProduct().then(respuetaPromise => {
+            setProduct(respuetaPromise[1])
                 })                            //con el .then accedemos a  los datos que nos devuelve la promesa
 
     },[]) // el array vacio nos indica que se va a ejecutar una sola vez. 
     return (
-        <div>
-                <h1>{props.greeting}</h1>
-            <div className='itemContainer'>  
-                <ItemList products={products} />
-            </div>
+        <div className='itemContainer'>
+        
+         <ItemDetail producto={product}/>
         </div> 
         
     )
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;
