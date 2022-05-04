@@ -9,8 +9,8 @@ function NavBar() {
             <img src={logo} className='navLogo' alt="logo de página" />
             <ul className='navUl'>
                 <li><Link to={'/'}>HOME</Link>  </li>
-                <li><Link to={'/category/:categoryId'}>Catalogo</Link> </li>
-                <li><Link to={'/item/:itemId'}>Detalles</Link></li>
+                <li><Link to={'/category/AMD'}>Tarjetas AMD</Link> </li>
+                <li><Link to={'/category/Intel'}>Tarjetas Intel</Link></li>
             </ul>
             <CartWidget/>
         </div>

@@ -4,11 +4,11 @@ import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom';
 
 
-function getProduct(){
+function getProduct(itemId){
     return new Promise((resolve, reject) => {   // el resolve es como el return de una funci[on]
        setTimeout( () => {
-        const productFound = products.find((id) => {
-            return parseInt(id) === products.id
+        const productFound = products.find((tarjetas) => {
+            return parseInt(itemId) === tarjetas.id
         })
         resolve(productFound)
        },1000) 
@@ -17,15 +17,15 @@ function getProduct(){
 
 function ItemDetailContainer() {
     const [product, setProduct] = useState({})   // para guardar dentro del estado llamamos al setter. setProducts
-    const {itemid} = useParams()
+    const {itemId} = useParams()
     useEffect( () => {
-        getProduct(itemid).then(respuetaPromise => {
+        getProduct(itemId).then(respuetaPromise => {
             setProduct(respuetaPromise)
                 })                            //con el .then accedemos a  los datos que nos devuelve la promesa
 
-    },[itemid]) // el array vacio nos indica que se va a ejecutar una sola vez. 
+    },[itemId]) // el array vacio nos indica que se va a ejecutar una sola vez. 
     return (
-        <div className='itemContainer'>
+        <div>
          <ItemDetail producto={product}/>
         </div> 
         

@@ -8,7 +8,7 @@ function getProducts(categoryId){
        setTimeout( () => {
            if(categoryId !== undefined){
            const arrayFiltered =  products.filter((item)=>{
-                 return item.id === categoryId
+                 return item.category === categoryId
              })
              resolve(arrayFiltered)
            }
@@ -23,7 +23,6 @@ function getProducts(categoryId){
 function ItemListContainer(props) {
     const [products, setProducts] = useState([])   // para guardar dentro del estado llamamos al setter. setProducts
     const {categoryId} = useParams()
-    console.log('id:' + categoryId)
 
     useEffect( () => {
         getProducts(categoryId).then(respuetaPromise => {
