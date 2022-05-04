@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Item.css'
 
 function Item({producto}) {
@@ -8,11 +9,12 @@ function Item({producto}) {
                 <h1 className='titleProduct'>{producto.title}</h1>
                 <img src={producto.img} alt="" />
                 <h2 className='priceProduct'>${producto.precio}</h2>
-                <button>Comprar</button>
+                <Link to={'/item/'+ producto?.id}>Detalles</Link>
             </div>
+            
         </div>
     );
-}
+}  
 
 export default Item;
 

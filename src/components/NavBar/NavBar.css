@@ -13,13 +13,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
 }
 
-.nav ul a {
+.navUl li a{
     margin-right: 20px;
     text-decoration: none;
     color: black;
     transition: 0.3s;
+    font-weight: 500;
+    
 }
 
 .nav ul a:hover {

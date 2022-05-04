@@ -1,9 +1,29 @@
-.itemDetail{
+.itemContainer{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     background-color: rgb(192, 192, 192);
+}
+.itemDetailContainer{
+    display: flex;
+}
+
+.containerProduct{
+    width: 300px;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+}
+
+.containerDetailProduct{
+    width: 300px;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
 }
 
 .containerProduct p{
     margin: 0 30px 0 30px;
+}
+
+.containerProduct img{
+    width: 200px;
 }
