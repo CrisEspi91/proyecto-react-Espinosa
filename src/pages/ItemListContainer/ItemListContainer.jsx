@@ -22,14 +22,14 @@ function getProducts(categoryId){
 
 function ItemListContainer(props) {
     const [products, setProducts] = useState([])   // para guardar dentro del estado llamamos al setter. setProducts
-    const {categoryId} = useParams()
+    const {categoryId} = useParams()  // categoryId debe ser el mismo nombre que agregamos en la ruta :categoryId para funcionar. 
 
     useEffect( () => {
         getProducts(categoryId).then(respuetaPromise => {
             setProducts(respuetaPromise)
                 })                            //con el .then accedemos a  los datos que nos devuelve la promesa
 
-    },[categoryId]) // el array vacio nos indica que se va a ejecutar una sola vez. Si tiene algo se va a ejecutar cada vez que eso cambie
+    },[categoryId]) // el array vacio nos indica que se va a ejecutar una sola vez. Si tiene algo se va a ejecutar cada vez que eso cambie. Hara que el useEffect se inicie otra vez.
     return (
         <div>
                 <h1>{props.greeting}</h1>

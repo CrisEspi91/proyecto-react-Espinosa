@@ -16,6 +16,7 @@ function getProduct(itemId){
 }
 
 function ItemDetailContainer() {
+    
     const [product, setProduct] = useState({})   // para guardar dentro del estado llamamos al setter. setProducts
     const {itemId} = useParams()
     useEffect( () => {
@@ -26,7 +27,7 @@ function ItemDetailContainer() {
     },[itemId]) // el array vacio nos indica que se va a ejecutar una sola vez. 
     return (
         <div>
-         <ItemDetail producto={product}/>
+         <ItemDetail  producto={product}/>
         </div> 
         
     )

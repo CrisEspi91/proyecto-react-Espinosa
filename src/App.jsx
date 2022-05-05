@@ -10,10 +10,10 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<ItemListContainer greeting='Productos'/>}/>
-        <Route path='/category/:categoryId' element={<ItemListContainer greeting='Productos'/>}/>
+        <Route path='/category/:categoryId' element={<ItemListContainer greeting='Productos'/>}/> 
         <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
       </Routes>      
-    </div>
+    </div> // el category id es un parametro, su nombre es importante, el nombre no ira en la url pero sera el nombre a traves del cual se podra acceder a la url a traves del hook useParams
   );
 }
 

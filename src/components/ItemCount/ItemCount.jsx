@@ -18,9 +18,8 @@ function ItemCount(props) {
         }
     }
 
-    function addChart(){
-        alert (`tienes ${count} productos`)
-    }
+
+   
     
     return (
         <div>
@@ -32,7 +31,7 @@ function ItemCount(props) {
                     <button onClick={handleAdd}>+</button>
                     <hr/>
                     <div>
-                    <button className='addButton' onClick={addChart}>Agregar al carrito</button> 
+                    <button className='addButton' onClick={() => props.onAdd(count)}>Agregar al carrito</button> 
                     </div>
                 </div>  
                          
