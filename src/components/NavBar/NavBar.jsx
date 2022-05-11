@@ -3,7 +3,10 @@ import "./NavBar.css";
 import logo from "../../assets/img/logo.png";
 import CartWidget from '../CartWidget/CartWidget.jsx';
 import { Link } from 'react-router-dom';
+import useCartContext from '../../store/CartContext';
 function NavBar() {
+    const {contextFunction} = useCartContext()
+    contextFunction()
     return (
         <div className='nav'>
             <img src={logo} className='navLogo' alt="logo de página" />
