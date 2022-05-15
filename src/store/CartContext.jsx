@@ -56,6 +56,7 @@ export function CartContextProvider({children}){
     }
 
     const calcPriceCart = () => {
+       
         // const total = 0
         // cart.forEach(item => total += cart)
         // return total

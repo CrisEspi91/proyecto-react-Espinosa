@@ -5,19 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom'
 
-import { initializeApp } from "firebase/app";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDdDjunNA8pZm9Q0GCkGQHhCUxCi_-pS_I",
-  authDomain: "proyecto-react-espinosa.firebaseapp.com",
-  projectId: "proyecto-react-espinosa",
-  storageBucket: "proyecto-react-espinosa.appspot.com",
-  messagingSenderId: "524962610483",
-  appId: "1:524962610483:web:c904b37d914c8d3a0e9246"
-};
-
-const app = initializeApp(firebaseConfig);
 
 
 ReactDOM.render(
