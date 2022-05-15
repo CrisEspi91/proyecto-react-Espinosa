@@ -9,7 +9,7 @@ function NavBar() {
     contextFunction()
     return (
         <div className='nav'>
-            <img src={logo} className='navLogo' alt="logo de página" />
+            <Link to={'/'}><img src={logo} className='navLogo' alt="logo de página" /></Link>
             <ul className='navUl'>
                 <li><Link to={'/'}>HOME</Link>  </li>
                 <li><Link to={'/category/AMD'}>Tarjetas AMD</Link> </li>

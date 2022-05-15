@@ -11,7 +11,7 @@ export function CartContextProvider({children}){
     const [cart, setCart] = useState([])
 
     const addToCart = (item, cant) => {
-        if (isInCart()){
+        if (isInCart(item.id)){
             const newCart = cart.map(cartItem => {
                 if(cartItem.id === item.id){
                     const copyItem = {...cartItem}
@@ -36,41 +36,47 @@ export function CartContextProvider({children}){
         setCart(cartFilter)
     }
 
-    const isInCart = () =>{ 
-        return true
+    const isInCart = (id) =>{ 
+        cart.some(itemCart => itemCart.id === id)
+        //comprobar si X item estta en el carrito Some funciona como find pero devuelve un booleano = existe o no existe
+    }
+
+    const getItemFromCart = (id) =>{ 
+        cart.find(itemCart => itemCart.id === id)
         //comprobar si X item estta en el carrito
     }
 
+
     const cantInCart = () =>{
         const total = 0
-        for (let i = 0; i <= cart.length; i++ ){
-           return total = i
-        }
-        //devolver la cantidad de items en el carrito PARA PONER EN NAVBAR
+        cart.forEach(item => total += cart.precio)
+        return total
+        //devolver la cantidad de items en el carrito PARA PONER EN NAVBAR usar un foreach, 
+        //e ir sumando al total la cantidad de este item
     }
 
     const calcPriceCart = () => {
-        const precio = 0
-        for (let i = 0; i <= cart.precio; i * precio){
-            return precio = i
-        }
+        // const total = 0
+        // cart.forEach(item => total += cart)
+        // return total
         // calcular el precio total del carrito 
     }
 
     const cleanCart = () =>{
-        return cart = ([])
+         setCart = ([])
         //limpiar completamente el carrito
     }
 
 
 
 
-    const contextFunction = () => console.log('context liztaylor')
+    const contextFunction = () =>   console.log('context liztaylor')
     return(
-        <Provider value={{contextFunction, cart, addToCart, removeFromCart, cantInCart, calcPriceCart, cleanCart}}>
+        <Provider value={{contextFunction, cart, addToCart, removeFromCart, cantInCart, calcPriceCart, cleanCart, getItemFromCart}}>
             {children}
         </Provider>
     )
+    
 }
 
 export default useCartContext

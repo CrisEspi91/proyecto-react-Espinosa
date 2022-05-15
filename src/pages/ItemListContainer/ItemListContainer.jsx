@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'; // estos datos se guardaran en
 import products from '../../data/products'
 import ItemList from '../../components/itemList/ItemList'
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, query, where, limit } from 'firebase/firestore'
 
 function getProducts(categoryId){
     return new Promise((resolve, reject) => {   // el resolve es como el return de una funci[on]
@@ -23,8 +24,29 @@ function getProducts(categoryId){
 function ItemListContainer(props) {
     const [products, setProducts] = useState([])   // para guardar dentro del estado llamamos al setter. setProducts
     const {categoryId} = useParams()  // categoryId debe ser el mismo nombre que agregamos en la ruta :categoryId para funcionar. 
-
+   
     useEffect( () => {
+        // const db = getFirestore()
+
+        // const itemCollection = collection(db, 'items')
+
+        // const q = query(
+        //     itemCollection, 
+        //     where('precio', '<', 1500),
+        //     limit(1)
+        // )
+
+        // getDocs(q)
+        // .then(snapshot => {
+        //     console.log(snapshot.docs.map(doc => {
+        //         return {...doc.data(), id: doc.id} }))
+        // })
+        // .catch(
+        //     err => console.log(err)
+        // )
+
+        //de ac[a para arrtiba es la clase 10]
+
         getProducts(categoryId).then(respuetaPromise => {
             setProducts(respuetaPromise)
                 })                            //con el .then accedemos a  los datos que nos devuelve la promesa

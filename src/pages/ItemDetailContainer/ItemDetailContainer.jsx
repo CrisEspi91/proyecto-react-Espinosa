@@ -17,7 +17,7 @@ function getProduct(itemId){
 
 function ItemDetailContainer() {
     
-    const [product, setProduct] = useState({})   // para guardar dentro del estado llamamos al setter. setProducts
+    const [product, setProduct] = useState()   // para guardar dentro del estado llamamos al setter. setProducts
     const {itemId} = useParams()
     useEffect( () => {
         getProduct(itemId).then(respuetaPromise => {
