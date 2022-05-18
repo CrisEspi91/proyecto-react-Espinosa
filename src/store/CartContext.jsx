@@ -56,7 +56,9 @@ export function CartContextProvider({children}){
     }
 
     const calcPriceCart = () => {
-       
+        const total = 0
+        cart.forEach(item => total * cart.precio)
+        return total
         // const total = 0
         // cart.forEach(item => total += cart)
         // return total
@@ -71,7 +73,9 @@ export function CartContextProvider({children}){
 
 
 
-    const contextFunction = () =>   console.log('context liztaylor')
+    const contextFunction = () =>   {console.log('context liztaylor')}
+
+    
     return(
         <Provider value={{contextFunction, cart, addToCart, removeFromCart, cantInCart, calcPriceCart, cleanCart, getItemFromCart}}>
             {children}

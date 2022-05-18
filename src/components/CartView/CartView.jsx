@@ -4,7 +4,7 @@ import useCartContext from '../../store/CartContext';
 import './CartView.css'
 
 function CartView() {
-    const {cart, removeFromCart, cleanCart} = useCartContext()
+    const {cart, removeFromCart, cleanCart, calcPriceCart} = useCartContext()
    
 
 
@@ -30,7 +30,7 @@ function CartView() {
                         })}
 
                             <button onClick={cleanCart}>Vaciar Carrito</button>
-                            <h4>Precio total =</h4>
+                            <h4>Precio total = ${calcPriceCart}</h4>
                         </div>
                 </div>
     }
