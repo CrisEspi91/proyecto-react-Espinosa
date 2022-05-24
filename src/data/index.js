@@ -1,7 +1,7 @@
 
 import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc, query, where, collection, getDocs } from "firebase/firestore";
+import { getFirestore, doc, getDoc, query, where, collection, getDocs, setDoc, Timestamp, addDoc} from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -67,4 +67,62 @@ export async function getItem(id){
         ...productSnap.data(),
         id: productSnap.id
         }
+} 
+
+export async function createBuyOrder(orderData){
+    const buyTimestamp = Timestamp.now()
+    const orderWhithDate = {
+        ...orderData, 
+        date: buyTimestamp
+    }
+
+        const miColec = collection(firestoreDB, 'buyOrders')
+
+        const orderDoc = await addDoc(miColec, orderWhithDate)
+    console.log('ordenlista con id', orderDoc.id)
+
 }
+
+
+
+// abajo exportamos una base de datos a FIREBASE
+// export async function dataToFirebase() {
+//     const products = [{
+//         "title": "RTX 3090",
+//         "precio": 1080.99,
+//         'category': 'Intel',
+//         'stock': 1,
+//         "img": "https://m.media-amazon.com/images/I/81-GWj0nEkL._AC_SL1500_.jpg"
+//       }, {
+//         "title": "RX 6900",
+//         "precio": 3000,
+//         'category': 'AMD',
+//         'stock': 9,
+//         "img": "https://m.media-amazon.com/images/I/81c3PiQLBUL._AC_SX450_.jpg"
+//       }, {
+//         "title": "RTX 3080 ti",
+//         "precio": 2800,
+//         'category': 'Intel',
+//         'stock': 6,
+//         "img": "https://m.media-amazon.com/images/I/81TzR9+1IXL._AC_SL1500_.jpg"
+//       }, {
+//         "title": "RX 6800",
+//         "precio": 1222,
+//         'category': 'AMD',
+//         'stock': 3,
+//         "img": "https://m.media-amazon.com/images/I/71ZmRXZcnXS._AC_SL1500_.jpg"
+//       }]
+
+//       // remplazar "cities" por el nombre de la coleccion
+//       const miColeccion = collection(firestoreDB, 'items');  
+      
+//     products.forEach((item) => {     
+//         const newDoc = doc(miColeccion)
+ 
+//         setDoc(newDoc, item).then(() => {
+//           console.log("Document written with ID: ", newDoc.id)})
+//         .catch(err => {
+//             console.error("Error adding document: ", err);
+//         });
+//     });
+// }

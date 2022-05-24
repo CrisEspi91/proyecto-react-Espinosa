@@ -6,10 +6,10 @@ import useCartContext from '../../store/CartContext';
 
 function CartWidget() {
     //agregar a la cost cantInCart de cartcontext.
-    const { calcPriceCart } = useCartContext()
+    const { cantInCart } = useCartContext()
     return (
         <div className='logoCarrito'>
-            <Link to={'/cart'}><img src={carrito}  alt="carrito de compras" />{calcPriceCart()}</Link>
+            <Link to={'/cart'}><img src={carrito}  alt="carrito de compras" />{cantInCart()}</Link>
         </div>
     );
 }

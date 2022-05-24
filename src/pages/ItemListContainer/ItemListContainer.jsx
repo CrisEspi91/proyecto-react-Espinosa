@@ -10,7 +10,7 @@ function ItemListContainer(props) {
    
     useEffect( () => {
         if(categoryId === undefined){
-        getProducts(categoryId).then(respuetaPromise => {
+        getProducts().then(respuetaPromise => {
             setProducts(respuetaPromise)
                 })                            //con el .then accedemos a  los datos que nos devuelve la promesa
             }

@@ -48,25 +48,25 @@ export function CartContextProvider({children}){
 
 
     const cantInCart = () =>{
-        const total = 0
-        cart.forEach(item => total += cart.precio)
-        return total
-        //devolver la cantidad de items en el carrito PARA PONER EN NAVBAR usar un foreach, 
+            let total = 0
+            cart.forEach((item)=>( total = total + item.cant))
+            return total
+        //devolver la CANTIDAD de items en el carrito PARA PONER EN NAVBAR usar un foreach, 
         //e ir sumando al total la cantidad de este item
     }
 
     const calcPriceCart = () => {
-        const total = 0
-        cart.forEach(item => total * cart.precio)
+        var total = 0
+        cart.forEach((item) => total = total + item.precio)
         return total
-        // const total = 0
+        // // const total = 0
         // cart.forEach(item => total += cart)
         // return total
         // calcular el precio total del carrito 
     }
 
     const cleanCart = () =>{
-         setCart = ([])
+         setCart([])
         //limpiar completamente el carrito
     }
 
