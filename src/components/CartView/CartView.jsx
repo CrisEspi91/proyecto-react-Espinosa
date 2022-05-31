@@ -24,18 +24,21 @@ function CartView() {
             items: itemsToBuy, 
             total: calcPriceCart(),   
         }
-        createBuyOrder(buyOrder)
+       createBuyOrder(buyOrder).then((res)=>{
+           console.log('respuesta', res)
+           setOrderID(res)
+           cleanCart()
+       })
         
-        cleanCart()
-        alert('Tu compra se ha procesado correctamente! Tu ID es', itemsToBuy.id )
+    
     }
 
 
 
 
     if (cart.length === 0){
-        if (setOrderID == true){
-            return <h2>Gracias por tu compra!, tu número de seguimiento es: {setOrderID}</h2>
+        if (orderID !== undefined){
+            return <h2 className='gracias'>¡GRACIAS POR TU COMPRA!, tu número de compra es: <span className='graciasSpan'>{orderID}</span></h2>
         }
         else{
         return <>
